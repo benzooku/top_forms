@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    <!--
+    <form action="/users" method="post" accept-charset="UTF-8">
+        <label for="username">username</label>
+        <input type="text" id="username" name="user[username]"><br>
+
+        <label for="email">email</label>
+        <input type="text" id="email" name="user[email]"><br>
+
+        <label for="password">password</label>
+        <input type="password" id="password" name="user[password]"><br>
+
+        <input type="submit" value="Submit">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    </form>
+    -->
+    <!--
+    <%= form_tag("/users", method: "post") do %>
+        <%= label_tag(:email, "email") %>
+        <%= text_field(:user, :email) %>
+        <%= label_tag(:username, "username") %>
+        <%= text_field(:user, :username) %>
+        <%= label_tag(:password, "password") %>
+        <%= password_field(:user, :password) %>
+
+        <%= submit_tag("Submit")%>
+    <% end %>
+    -->
+    <%= form_with model: User.new do |form| %>
+        <%= form.text_field :username %>
+        <%= form.text_field :email %>
+        <%= form.password_field :password %>
+
+        <%= form.submit %>
+
+    <% end %>
+</body>
+</html>
